@@ -12,16 +12,17 @@ import '../texts/brand_title_with_verified_icon.dart';
 class TBrandCard extends StatelessWidget {
   const TBrandCard({
     super.key,
-    required this.showBorder,
+    required this.showBorder, this.onTap,
   });
 
   final bool showBorder;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: TRoundedContainer(
         padding: EdgeInsets.all(TSizes.sm),
         showBorder: showBorder,

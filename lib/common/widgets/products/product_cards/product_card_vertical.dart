@@ -106,10 +106,7 @@ class TProductCardVertical extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                       color: TColors.dark,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(TSizes.cardRadiusMd),
-                          bottomRight: Radius.circular(TSizes.productImageRadius)
-                      )
+                      borderRadius:BorderRadius.circular(100)
                   ),
                   child: SizedBox(
                     width: TSizes.iconLg * 1.2,

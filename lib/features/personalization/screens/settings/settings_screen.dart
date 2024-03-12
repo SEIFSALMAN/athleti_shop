@@ -2,6 +2,8 @@ import 'package:athleti_shop/common/widgets/appbar/appbar.dart';
 import 'package:athleti_shop/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:athleti_shop/common/widgets/texts/section_heading.dart';
 import 'package:athleti_shop/features/personalization/screens/address/address_screen.dart';
+import 'package:athleti_shop/features/shop/screens/cart/cart_screen.dart';
+import 'package:athleti_shop/features/shop/screens/order/order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -64,13 +66,13 @@ class SettingsScreen extends StatelessWidget {
                     icon: Icons.shopping_cart,
                     title: "My Cart",
                     subTitle: "Add, remove products and move to checkout",
-                    onTap: () {},
+                    onTap: () => Get.to(()=> CartScreen()),
                   ),
                   TSettingsMenuTile(
                     icon: Icons.shopping_bag,
                     title: "My Orders",
                     subTitle: "In-progress and completed orders",
-                    onTap: () {},
+                    onTap: () => Get.to(()=> OrderScreen()),
                   ),
                   TSettingsMenuTile(
                     icon: Icons.comment_bank_sharp,

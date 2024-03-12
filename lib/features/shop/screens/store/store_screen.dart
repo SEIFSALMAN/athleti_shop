@@ -4,11 +4,14 @@ import 'package:athleti_shop/common/widgets/custom_shapes/container/search_conta
 import 'package:athleti_shop/common/widgets/layouts/grid_layout.dart';
 import 'package:athleti_shop/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:athleti_shop/common/widgets/texts/section_heading.dart';
+import 'package:athleti_shop/features/shop/screens/brands/all_brands.dart';
 import 'package:athleti_shop/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:athleti_shop/utils/constants/colors.dart';
 import 'package:athleti_shop/utils/constants/sizes.dart';
 import 'package:athleti_shop/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import '../../../../common/widgets/brands/brands_card.dart';
 
 class StoreScreen extends StatelessWidget {
@@ -69,7 +72,7 @@ class StoreScreen extends StatelessWidget {
                         ),
                         TSectionHeading(
                           title: 'Featured Brands',
-                          onPressed: () {},
+                          onPressed: () => Get.to(()=> AllBrandsScreen()),
                         ),
                         SizedBox(
                           height: TSizes.spaceBtwItems / 1.5,
