@@ -1,3 +1,4 @@
+import 'package:athleti_shop/features/personalization/controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
@@ -11,13 +12,14 @@ class TUserProfileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return ListTile(
       leading: TCircularImage(
-        image: "assets/images/seif.jpg",height: 50,width: 50, padding: 0,
+        image: controller.user.value.profilePicture.isEmpty ? TImages.user : controller.user.value.profilePicture,height: 50,width: 50, padding: 0,
         backgroundColor: Colors.transparent,
       ),
-      title: Text("Seif Salman",style: Theme.of(context).textTheme.headlineSmall!.apply(color: TColors.white)),
-      subtitle: Text("seifxofficial@gmail.com",style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white)),
+      title: Text(controller.user.value.fullName,style: Theme.of(context).textTheme.headlineSmall!.apply(color: TColors.white)),
+      subtitle: Text(controller.user.value.email,style: Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white)),
       trailing: IconButton(onPressed: onPressed , icon: Icon(Icons.edit,color: TColors.white),),
     );
   }

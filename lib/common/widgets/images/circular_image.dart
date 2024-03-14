@@ -1,4 +1,6 @@
+import 'package:athleti_shop/common/styles/shimmer.dart';
 import 'package:athleti_shop/utils/helpers/helper_functions.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
@@ -34,12 +36,16 @@ class TCircularImage extends StatelessWidget {
       decoration: BoxDecoration(
           color: backgroundColor ?? (dark ? TColors.black : TColors.white),
           borderRadius: BorderRadius.circular(100)),
-      child: Center(
-        child: Image(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(100),
+        child: Center(
+          child: isNetworkImage ? CachedNetworkImage(imageUrl: image,fit: fit,color: overlayColor,errorWidget: (context,url,error)=> Icon(Icons.error),
+          progressIndicatorBuilder: (context,url,downloadProgress) => TShimmerEffect(width: 55, height: 55),)
+         : Image(
           fit: fit,
-            image: isNetworkImage ? NetworkImage(image) : AssetImage(image) as ImageProvider,
-            color: overlayColor),
-      ),
-    );
+          image: AssetImage(image),
+          color: overlayColor),
+            ),
+      ));
   }
 }

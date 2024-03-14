@@ -7,9 +7,11 @@ import 'package:athleti_shop/features/shop/screens/order/order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../../../common/widgets/custom_shapes/container/primary_header_container.dart';
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
+import '../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../profile/profile_screen.dart';
@@ -146,7 +148,11 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        AuthenticationRepository.instance.logout();
+                        GetStorage().remove('REMEMBER_ME_EMAIL');
+                        GetStorage().remove('REMEMBER_ME_PASSWORD');
+                      },
                       child: Text("Logout"),
                     ),
                   ),
